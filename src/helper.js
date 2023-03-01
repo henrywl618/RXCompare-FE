@@ -8,5 +8,6 @@ function importAll(r) {
 }
 
 const backendURL = process.env.BACKENDURL || "http://localhost:3001/drugs";
+console.log(backendURL)
 
 export { importAll, backendURL };
