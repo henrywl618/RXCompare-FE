@@ -7,6 +7,6 @@ function importAll(r) {
     return r.keys().map( key => r(key))
 }
 
-const backendURL = "https://drugpriceapi.com/drugs";
+const backendURL = "https://rxcompare-be-production.up.railway.app/drugs";
 
 export { importAll, backendURL };
