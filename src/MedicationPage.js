@@ -20,7 +20,9 @@ const MedicationPage = () => {
 
     const fetchPrices = async({drugName, zip, form, dose, qty})=>{  
         try {
-            const response = await axios( {url:`${backendURL}/prices`, method:"post", data: {name:drugName, form, zip, dose, qty}});
+            const response = await axios( {url:`${backendURL}/prices`, 
+                                           method:"post", 
+                                           data: {name:drugName, form, zip, dose, qty}});
             const results = response.data
             setResults(results)
         } catch (err) {
@@ -30,6 +32,7 @@ const MedicationPage = () => {
     };
 
     const fetchDoseQty = async (name, form, search=false) => {
+        console.log("fetch price")
         const response = await axios( { url: `${backendURL}/doseqty`, method: "post", data: { name, form}});
         const doses = response.data.doses;
         const qtys = response.data.qtys;
@@ -88,6 +91,7 @@ const MedicationPage = () => {
                                     handleFormChange={handleFormChange}
                                     updateDoseQty={updateDoseQty}
                                     handleClick={handleClick}
+                                    results={results}
                 ></FormDoseQtySearch>
             </Grid>
             <Grid item container justifyContent="center" sx={{ my:2}}>
